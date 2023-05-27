@@ -16,9 +16,10 @@ function Navbar() {
 
   return (
     <div className="flex items-center justify-between p-5 bg-blue-500">
-      <Link to="/" className="text-white text-lg">
-        Your Name
+      <Link to="/" className="gradient-text">
+        Michael Ouroumis
       </Link>
+
       <div
         className="md:hidden"
         onClick={handleClick}
