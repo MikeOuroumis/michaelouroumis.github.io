@@ -62,6 +62,7 @@ function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
+            data-testid="github-link"
           >
             <FaGithub size={24} />
           </a>
@@ -70,6 +71,7 @@ function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
+            data-testid="linkedin-link"
           >
             <FaLinkedin size={24} />
           </a>
