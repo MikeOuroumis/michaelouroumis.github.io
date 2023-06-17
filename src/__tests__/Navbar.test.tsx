@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Navbar from '../components/Navbar'
@@ -41,4 +41,32 @@ test('contains social media links', () => {
     'href',
     'https://www.linkedin.com/in/michael-ouroumis-76676022b/'
   )
+})
+
+test('Mobile menu opens and closes upon clicking', () => {
+  render(
+    <Router>
+      <Navbar />
+    </Router>
+  )
+
+  const menuButton = screen.getByRole('button')
+  fireEvent.click(menuButton)
+
+  // After clicking, the mobile menu should be visible
+  expect(screen.getByText('About Me')).toBeVisible()
+  expect(screen.getByText('Portfolio')).toBeVisible()
+  expect(screen.getByText('Skills')).toBeVisible()
+
+  fireEvent.click(menuButton)
+
+  // After clicking again, the mobile menu should not be visible
+  expect(screen.getByText('About Me').parentElement).toHaveClass(
+    'hidden md:flex'
+  )
+  expect(screen.getByText('Portfolio').parentElement).toHaveClass(
+    'hidden md:flex'
+  )
+
+  expect(screen.getByText('Skills').parentElement).toHaveClass('hidden md:flex')
 })
