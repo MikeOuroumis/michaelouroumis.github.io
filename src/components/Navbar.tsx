@@ -15,7 +15,7 @@ function Navbar() {
   }
 
   return (
-    <div className="bg-gray-800 h-20 flex justify-center items-center text-lg sticky top-0 z-50">
+    <div className="relative bg-gray-800 h-20 flex justify-center items-center text-lg sticky top-0 z-50">
       <div className="flex justify-between items-center h-20 z-10 w-full mx-auto px-12">
         <Link to="/" className="gradient-text">
           Michael Ouroumis
@@ -36,7 +36,9 @@ function Navbar() {
         </div>
         <div
           className={
-            click ? 'flex flex-col md:flex-row items-center' : 'hidden md:flex'
+            click
+              ? 'transition-all ease-in-out duration-500 flex flex-col absolute top-full left-0 bg-gray-800 w-full items-center h-auto'
+              : 'hidden md:flex'
           }
         >
           <Link
@@ -57,24 +59,26 @@ function Navbar() {
           >
             Skills
           </Link>
-          <a
-            href="https://github.com/MikeOuroumis"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
-            data-testid="github-link"
-          >
-            <FaGithub size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/michael-ouroumis-76676022b/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
-            data-testid="linkedin-link"
-          >
-            <FaLinkedin size={24} />
-          </a>
+          <div className="flex flex-row">
+            <a
+              href="https://github.com/MikeOuroumis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
+              data-testid="github-link"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/michael-ouroumis-76676022b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center mx-2 text-white md:mx-4 p-2 rounded-lg transition-colors duration-300 hover:text-purple-400"
+              data-testid="linkedin-link"
+            >
+              <FaLinkedin size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </div>
